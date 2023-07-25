@@ -9,9 +9,9 @@
     "prod": "SET NODE_ENV=PRODUCTION& nodemon backend/server",
     "seeder": "node backend/utils/seeder.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend",
-    "build": "(npm install) && (cd frontend && npm install && npm run build && npm start) && (cd ..)"
+    "build": "(npm install) && (cd frontend && npm install && npm run build) && (cd ..)"
   },
-  "author": "Nhom3_TTCN",
+  "author": "NhomG03",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
