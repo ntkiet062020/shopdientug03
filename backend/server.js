@@ -15,7 +15,10 @@ process.on('uncaughtException', err => {
 if (process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').config({ path: 'backend/config/config.env' })
 
 //dotenv.config({ path: 'backend/config/config.env' })
-
+app.use('/routes/auth', require('./routes/auth.js'));
+app.use('/routes/order', require('./routes/order.js'));
+app.use('/routes/payment', require('./routes/payment.js'));
+app.use('/routes/product', require('./routes/product.js'));
 
 // Connecting to database
 connectDatabase();
