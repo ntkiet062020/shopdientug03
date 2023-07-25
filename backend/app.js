@@ -43,20 +43,11 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'));
     });
-} else { // Môi trường phát triển
-    // Cấu hình để phục vụ các tệp nguồn (source files) của bạn trong thư mục frontend
-    app.use(express.static(path.join(__dirname, '../frontend')));
-
-    // Nếu bạn sử dụng React Router hoặc tương tự, bạn cần xử lý tất cả các đường dẫn ở phía máy chủ
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../frontend/index.html'));
-    });
 }
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
-
 
 // Middleware to handle errors
 app.use(errorMiddleware);
