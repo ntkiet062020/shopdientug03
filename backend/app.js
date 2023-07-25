@@ -6,7 +6,6 @@ const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
 const dotenv = require('dotenv');
 const path = require('path')
-const port = 3000; // Đặt cổng của bạn ở đây
 
 const errorMiddleware = require('./middlewares/errors')
 
@@ -36,18 +35,14 @@ app.use('/api/v1', auth)
 app.use('/api/v1', payment)
 app.use('/api/v1', order)
 
-// Cấu hình cho môi trường 'PRODUCTION'
 if (process.env.NODE_ENV === 'PRODUCTION') {
-    app.use(express.static(path.join(__dirname, '../frontend/build')));
+    app.use('/login', express.static(path.join(__dirname, '../frontend/build')))
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'));
-    });
+    app.get('login/*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'))
+    })
 }
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
 
 // Middleware to handle errors
 app.use(errorMiddleware);
