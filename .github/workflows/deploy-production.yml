@@ -1,0 +1,23 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: executing remote ssh command
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.VPS_PROD }}
+        username: ${{ secrets.USERNAME }}
+        port: ${{ secrets.SSH_PORT_PROD }}
+        key: ${{ secrets.SSH_KEY_PROD }}
+        script: |
+          cd ${{ secrets.DOCUMENT_WEB }}
+          sh deploy.sh
