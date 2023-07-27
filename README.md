@@ -1,6 +1,7 @@
 # Nhóm 3
 # Đề tài: Website bán đồ điện tử
-<h3>Link demo: https://shopvip.didibkk.com/</h3>
+### Link demo: https://shopvip.didibkk.com/
+
 <h3>Thành viên nhóm: </h3>
 <h6>+ Hoàng Thiều Đức Mạnh</h6>
 <h6>+ Nguyễn Tuấn Kiệt</h6>
